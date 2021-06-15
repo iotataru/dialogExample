@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Dialog App - Parent Page</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/beta/hosted/office.debug.js"></script> 
+</head>
+<script src="ParentPage.js"></script>
+
+	<script>
+		// Perform Step 2 of an initialization that -- in a real developer scenario (non-test-agave), would have
+		//    been included inside the "excel-web-16.00.js"/"excel-win32-16.01.js"/etc files
+		Office.onReady(function(info) {
+			// do something
+		});
+	</script>
+	<body>
+	    <div id="content-header">
+	        <div class="padding">
+	            <h1>Dialog App - Parent Page</h1>
+	        </div>
+	    </div>
+	    <div id="content-main" style="background-color:#8ced74;">
+	        <div class="padding">
+	            <button id="launchInlineDialog" onclick="launchInlineDialog()">Launch Inline Dialog</button>: <input id="InlineLaunch" type="text" placeholder="https://iotataru.github.io/dialogExample/DialogApi/ChildPage.html" style="width:300px;"/>
+	            <p></p>
+	            <button id="launchWindowDialog" onclick="launchWindowDialog()">Launch Window Dialog</button>: <input id="WindowLaunch" type="text" placeholder="https://iotataru.github.io/dialogExample/DialogApi/ChildPage.html" style="width:300px;"/>
+	            <p></p>
+	            <button id="messageChild" onclick="messageChild()">SendMessageToChild</button>: <input id="MessageForChild" type="text" placeholder="Message For Child" style="width:200px;"/>
+	            <p></p>
+	            <button id="redirect" onclick="redirect()">Redirect</button>: <input id="RedirectWebsite" type="text" placeholder="https://someWebsiteToRedirectTo.com" style="width:300px;"/>
+	            <p></p>
+	            <label id="actionResult"></label>
+	            <p></p>
+	            <button id="clickCurentSource" onclick="getCurentSource()">Get Parent Source</button>: <label id="currentSource"></label>
+	            <p></p>
+	        </div>
+	    </div>
+	    <div id="test node">
+		Test Node
+	    </div>
+	</body>
+</html>

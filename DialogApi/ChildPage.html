@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dialog App - Child Page</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" /> 
+	        <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/beta/hosted/office.debug.js"></script> 
+		<script src="ChildPage.js"></script>
+		<script>
+		// Perform Step 2 of an initialization that -- in a real developer scenario (non-test-agave), would have
+		//    been included inside the "excel-web-16.00.js"/"excel-win32-16.01.js"/etc files
+			Office.onReady(function(info) {
+				// do something
+			});
+		</script>
+	</head>
+	<body>
+		<div id="content-header">
+	        <div class="padding">
+	            <h1>Dialog App - Child Page</h1>
+	        </div>
+	    </div>
+	    <div id="content-main" style="background-color:#8ced74;">
+	        <div class="padding">
+	            <button id="messageParent" onclick="messageParent()">Message Parent</button>: <input id="MessageForParent" type="text" placeholder="Message For parent" style="width:200px;"/>
+	            <p></p>
+	            <button id="redirect" onclick="redirect()">Redirect</button>: <input id="RedirectWebsite" type="text" placeholder="https://someWebsiteToRedirectToo.com" style="width:300px;"/>
+	            <p></p>
+	            <label id="actionResult"></label>
+	            <p></p>
+	            <button id="clickCurentSource" onclick="getCurentSource()">Get Parent Source</button>: <label id="currentSource"></label>
+	            <p></p>
+	        </div>
+	    </div>
+	</body>
+</html>
