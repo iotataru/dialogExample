@@ -25,12 +25,15 @@ function launchDialogCallback(arg) {
         _dialog = arg.value;
         _dialog.addEventHandler(Microsoft.Office.WebExtension.EventType.DialogMessageReceived, addMessageStatus);
         _dialog.addEventHandler(Microsoft.Office.WebExtension.EventType.DialogEventReceived, addCloseStatus);
-        setTimeout(messageChildInitial, 5000);
+        //setTimeout(messageChildInitial, 5000);
     }
 }
 
 function addMessageStatus(arg) {
-    showNotification(arg.message);
+    if (arg.message === "ping!") {
+        messageChild("pong!");
+    }
+    showNotification(JSON.stringify(arg));
 }
 
 function addCloseStatus(arg) {
