@@ -1,7 +1,7 @@
 "use strict";
 // The initialize function must be run each time a new page is loaded
 var _dialog;
-var _childPageUrl = "https://iotataru.github.io/dialogExample/DialogApi/ChildPage.html";
+var _childPageUrl = "https://iotataru.github.io/dialogExample/DialogApi/ChildPage/";
 
 function getCurentSource() {
     var source;
