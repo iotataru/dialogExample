@@ -30,7 +30,7 @@ function showNotification(text) {
 }
 
 function addMessageStatus(arg) {
-  showNotification(arg.message);
+  showNotification(JSON.stringify(arg));
 }
 
 function RegisterMessageChild() {
