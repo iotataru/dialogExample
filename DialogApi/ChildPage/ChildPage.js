@@ -34,7 +34,11 @@ function addMessageStatus(arg) {
 }
 
 function RegisterMessageChild() {
-  Office.context.ui.addHandlerAsync(Office.EventType.DialogParentMessageReceived, addMessageStatus, onRegisterMessageComplete);
+  try {
+    Office.context.ui.addHandlerAsync(Office.EventType.DialogParentMessageReceived, addMessageStatus, onRegisterMessageComplete);
+  } catch (e) {
+    console.log("MESSAGE CHILD NOT SUPPORTED!!!");
+  }
 }
 
 function onRegisterMessageComplete(asyncResult) {
