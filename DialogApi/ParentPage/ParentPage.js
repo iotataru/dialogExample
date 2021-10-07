@@ -12,10 +12,10 @@ function getCurentSource() {
     }
     document.getElementById('currentSource').innerText = "SOURCE: " + source;
     
-    //var requirementSetDialogOrigin1 = Office.context.requirements.isSetSupported(‘DialogOrigin’, 1.1);
-    //var requirementSetDialogOrigin2 = Office.context.requirements.isSetSupported(‘DialogOrigin’, 1.2);
-    //console.log("requirementSetDialogOrigin1: " + requirementSetDialogOrigin1);
-    //console.log("requirementSetDialogOrigin2: " + requirementSetDialogOrigin2);
+    var requirementSetDialogOrigin1 = Office.context.requirements.isSetSupported("DialogOrigin", 1.1);
+    var requirementSetDialogOrigin2 = Office.context.requirements.isSetSupported("DialogOrigin", 1.2);
+    console.log("requirementSetDialogOrigin1: " + requirementSetDialogOrigin1);
+    console.log("requirementSetDialogOrigin2: " + requirementSetDialogOrigin2);
 }
 
 function showNotification(text) {
