@@ -3,7 +3,13 @@
 window.Office.initialize = function (reason) {
   debugger;
   console.log("window.Office.initialize called");
-  RegisterMessageChild();
+  var requirementSetDialogOrigin1 = Office.context.requirements.isSetSupported(‘DialogOrigin’, 1.1);
+  var requirementSetDialogOrigin2 = Office.context.requirements.isSetSupported(‘DialogOrigin’, 1.2);
+  console.log("requirementSetDialogOrigin1: " + requirementSetDialogOrigin1);
+  console.log("requirementSetDialogOrigin2: " + requirementSetDialogOrigin2);
+  if (requirementSetDialogOrigin2) {
+    RegisterMessageChild();
+  }
 }
 
 function getCurentSource() {
