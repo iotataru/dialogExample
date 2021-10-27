@@ -37,6 +37,8 @@ function launchDialogCallback(arg) {
 function addMessageStatus(arg) {
     if (arg.message === "ping!") {
         messageChild("pong!");
+    } else if (arg.message === "closeme") {
+        closeDialog();
     }
     showNotification(JSON.stringify(arg));
 }
