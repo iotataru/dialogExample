@@ -3,6 +3,11 @@
 var _dialog;
 var _childPageUrl = "https://iotataru.github.io/dialogExample/DialogApi/ChildPage/";
 
+function windowOpen() {
+    var urlLaunch = !!(document.getElementById("WindowOpenLaunch").value) ? document.getElementById("WindowOpenLaunch").value : _childPageUrl;
+    window.open(urlLaunch);
+}
+
 function getCurentSource() {
     var source;
     if (!document.querySelector('[title="Office Add-in TwoWayMessageDialogTest"]')) {
