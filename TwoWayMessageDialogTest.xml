@@ -21,7 +21,7 @@
     <Capability Name="Mailbox" />
   </Capabilities>
   <DefaultSettings>
- 	<SourceLocation DefaultValue="https://iotataru.github.io/dialogExample/DialogApi/ParentPage.html">        
+ 	<SourceLocation DefaultValue="https://iotataru.github.io/dialogExample/DialogApi/ParentPage/">        
     </SourceLocation>
   </DefaultSettings>
   <Permissions>ReadWriteDocument</Permissions>
