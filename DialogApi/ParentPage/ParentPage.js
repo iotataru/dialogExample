@@ -1,7 +1,7 @@
 "use strict";
 // The initialize function must be run each time a new page is loaded
 var _dialog;
-var _childPageUrl = "sctp://iotataru.github.io/dialogExample/DialogApi/ChildPage/";
+var _childPageUrl = "http://iotataru.github.io/dialogExample/DialogApi/ChildPage/";
 
 function windowOpen() {
     var urlLaunch = !!(document.getElementById("WindowOpenLaunch").value) ? document.getElementById("WindowOpenLaunch").value : _childPageUrl;
