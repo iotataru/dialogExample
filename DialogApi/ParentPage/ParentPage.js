@@ -3,6 +3,11 @@
 var _dialog;
 var _childPageUrl = "https://iotataru.github.io/dialogExample/DialogApi/ChildPage/";
 
+function testSettings() {
+    var settings = Office.context.document.settings;
+    consoel.log("settings: ", settings);
+}
+
 function windowOpen() {
     var urlLaunch = !!(document.getElementById("WindowOpenLaunch").value) ? document.getElementById("WindowOpenLaunch").value : _childPageUrl;
     window.open(urlLaunch);
