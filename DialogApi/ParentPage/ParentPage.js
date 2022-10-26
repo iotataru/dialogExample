@@ -3,7 +3,7 @@
 var _dialog;
 var _childPageUrl = "https://iotataru.github.io/dialogExample/DialogApi/ChildPage/";
 
-function testSettings() {
+function getSettings() {
     var settings = Office.context.document.settings;
     consoel.log("settings: ", settings);
 }
