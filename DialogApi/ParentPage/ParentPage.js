@@ -5,7 +5,7 @@ var _childPageUrl = "https://iotataru.github.io/dialogExample/DialogApi/ChildPag
 
 function getSettings() {
     var settings = Office.context.document.settings;
-    consoel.log("settings: ", settings);
+    console.log("settings: ", settings);
 }
 
 function windowOpen() {
