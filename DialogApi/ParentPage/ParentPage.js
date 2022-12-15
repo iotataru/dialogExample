@@ -72,13 +72,13 @@ function launchWindowDialog() {
 }
 
 function launchInlineDialogFromRibbon(args) {
-    Office.context.ui.displayDialogAsync(_childPageUrl, { height: 50, width: 30, promptBeforeOpen:true, displayInIframe: true }, launchDialogCallback);
+    Office.context.ui.displayDialogAsync(_childPageUrl, { height: 50, width: 30, promptBeforeOpen: true, displayInIframe: true }, launchDialogCallback);
 
     args.completed();
 }
 
 function launchWindowDialogFromRibbon(args) {
-    Office.context.ui.displayDialogAsync(_childPageUrl, { height: 50, width: 30, promptBeforeOpen:true, displayInIframe: false }, launchDialogCallback);
+    Office.context.ui.displayDialogAsync(_childPageUrl, { height: 50, width: 30, promptBeforeOpen: true, displayInIframe: false }, launchDialogCallback);
 
     args.completed();
 }
