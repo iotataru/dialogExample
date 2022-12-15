@@ -60,14 +60,14 @@ function addCloseStatus(arg) {
 function launchInlineDialog() {
     var dialogUrl = !!(document.getElementById("InlineLaunch").value) ? document.getElementById("InlineLaunch").value : _childPageUrl;
     Office.context.ui.displayDialogAsync(dialogUrl,
-  {height:80, width:50, hideTitle: false, promptBeforeOpen:false, enforceAppDomain: true, displayInIframe:true},
+  {height:80, width:50, hideTitle: false, promptBeforeOpen: true, enforceAppDomain: true, displayInIframe:true},
   launchDialogCallback);
 }
 
 function launchWindowDialog() {
     var dialogUrl = !!(document.getElementById("WindowLaunch").value) ? document.getElementById("WindowLaunch").value : _childPageUrl;
     Office.context.ui.displayDialogAsync(dialogUrl,
-  {height:80, width:50, hideTitle: false, promptBeforeOpen:false, enforceAppDomain: true},
+  {height:80, width:50, hideTitle: false, promptBeforeOpen: true, enforceAppDomain: true},
   launchDialogCallback);
 }
 
