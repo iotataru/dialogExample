@@ -48,7 +48,8 @@ async function toggleSheetProtection(
         await context.sync().catch((error) => {
             console.log("--- Error line 47");
         });
-        requiredSheet.protection.protect(
+        console.log("Skipping protecting. Do it manually before.");
+        /*requiredSheet.protection.protect(
           {
             allowEditObjects: true,
             allowAutoFilter: true,
@@ -56,12 +57,12 @@ async function toggleSheetProtection(
             allowFormatColumns: true,
           },
           password
-        );
+        );*/
       } else if (
         request === 'unprotect'
       ) {
-        console.log("Skipping unprotecting. Do it manually before.");
-        //requiredSheet.protection.unprotect(password)
+        //console.log("Skipping unprotecting. Do it manually before.");
+        requiredSheet.protection.unprotect(password)
       }
   
       await context.sync().catch((error) => {
