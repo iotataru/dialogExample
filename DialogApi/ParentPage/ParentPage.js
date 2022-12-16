@@ -41,8 +41,10 @@ async function toggleSheetProtection(
     await Excel.run(async (context) => {
       //console.log("toggleSheetProtection called: ", context);
       const requiredSheet = context.workbook.worksheets.getItem(sheetName);
-      if (request === 'protect' && !requiredSheet.protection.protected) {
-        requiredSheet.load('protection/protected');
+      if (request === 'protect') {
+        requiredSheet.load('protection');
+        requiredSheet.load('protected');
+        //check if already protected below or handle exception
         await context.sync().catch((error) => {
             console.log("--- Error line 47");
         });
