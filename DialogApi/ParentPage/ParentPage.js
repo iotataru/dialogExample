@@ -41,12 +41,12 @@ async function toggleSheetProtection(
     await Excel.run(async (context) => {
       //console.log("toggleSheetProtection called: ", context);
       const requiredSheet = context.workbook.worksheets.getItem(sheetName);
-      requiredSheet.load('protection');
-      await context.sync().catch((error) => {
-        console.log("--- Error line 47");
-      });
       if (request === 'protect' && !requiredSheet.protection.protected) {
-        /*requiredSheet.protection.protect(
+        requiredSheet.load('protection/protected');
+        await context.sync().catch((error) => {
+            console.log("--- Error line 47");
+        });
+        requiredSheet.protection.protect(
           {
             allowEditObjects: true,
             allowAutoFilter: true,
@@ -54,7 +54,7 @@ async function toggleSheetProtection(
             allowFormatColumns: true,
           },
           password
-        );*/
+        );
       } else if (
         request === 'unprotect' &&
         requiredSheet.protection.protected
