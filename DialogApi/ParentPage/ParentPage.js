@@ -17,7 +17,7 @@ async function writeValues(arg)
     const workSheetName = ws.worksheet.name;
     const password='password1'
     console.log("--- About to unprotect sheet!");
-    await this.toggleSheetProtection(workSheetName, 'unprotect', password);
+    await toggleSheetProtection(workSheetName, 'unprotect', password);
     console.log(`--- Unprotect complete! Going to write value: ${day}`);
     ws.values = [[day]];
     console.log("--- Value written! Going to sync.");
@@ -26,7 +26,7 @@ async function writeValues(arg)
         console.log(error)
     });
     console.log("--- Sync complete. Going to turn protection back on!");
-    await this.toggleSheetProtection(workSheetName, 'protect', password);
+    await toggleSheetProtection(workSheetName, 'protect', password);
     console.log("--- Protection is now back on!");
     }).catch((error) => {
         console.log("--- Error line 35");
