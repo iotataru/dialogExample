@@ -19,12 +19,14 @@ async function writeValues(arg)
     console.log("--- About to unprotect sheet!");
     await toggleSheetProtection(workSheetName, 'unprotect', password);
     console.log(`--- Unprotect complete! Going to write value: ${day}`);
-    ws.values = [[day]];
+
+    console.log("Skipping writing/syncing in order to test");
+    /*ws.values = [[day]];
     console.log("--- Value written! Going to sync.");
     await context.sync().catch((error) => {
         console.log("--- Error line 30");
         console.log(error)
-    });
+    });*/
     console.log("--- Sync complete. Going to turn protection back on!");
     await toggleSheetProtection(workSheetName, 'protect', password);
     console.log("--- Protection is now back on!");
@@ -48,8 +50,8 @@ async function toggleSheetProtection(
         await context.sync().catch((error) => {
             console.log("--- Error line 47");
         });
-        console.log("Skipping protecting. Do it manually before.");
-        /*requiredSheet.protection.protect(
+        //console.log("Skipping protecting. Do it manually before.");
+        requiredSheet.protection.protect(
           {
             allowEditObjects: true,
             allowAutoFilter: true,
@@ -57,7 +59,7 @@ async function toggleSheetProtection(
             allowFormatColumns: true,
           },
           password
-        );*/
+        );
       } else if (
         request === 'unprotect'
       ) {
