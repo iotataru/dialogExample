@@ -6,7 +6,8 @@ var _childPageUrl = "https://iotataru.github.io/dialogExample/DialogApi/ChildPag
 async function writeValues(arg)
 {
   console.log('--- Write value called with arg: ', arg);
-  let day = JSON.parse(arg.message);
+  //let day = JSON.parse(arg.message);
+  let day = arg.message;
   await Excel.run(async (context) => {
     const ws = context.workbook.names.getItem('rngDay').getRange();
     ws.load(['worksheet']);
