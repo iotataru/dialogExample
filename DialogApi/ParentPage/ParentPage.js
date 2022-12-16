@@ -3,6 +3,73 @@
 var _dialog;
 var _childPageUrl = "https://iotataru.github.io/dialogExample/DialogApi/ChildPage/";
 
+async function writeValues(arg)
+{
+  console.log('--- Write value called with arg: ', arg);
+  let day = JSON.parse(arg.message);
+  await Excel.run(async (context) => {
+    const ws = context.workbook.names.getItem('rngDay').getRange();
+    ws.load(['worksheet']);
+    await context.sync().catch((error) => {
+        console.log("--- Error line 21");
+    });
+    const workSheetName = ws.worksheet.name;
+    const password='password1'
+    console.log("--- About to unprotect sheet!");
+    await this.toggleSheetProtection(workSheetName, 'unprotect', password);
+    console.log(`--- Unprotect complete! Going to write value: ${day}`);
+    ws.values = [[day]];
+    console.log("--- Value written! Going to sync.");
+    await context.sync().catch((error) => {
+        console.log("--- Error line 30");
+        console.log(error)
+    });
+    console.log("--- Sync complete. Going to turn protection back on!");
+    await this.toggleSheetProtection(workSheetName, 'protect', password);
+    console.log("--- Protection is now back on!");
+    }).catch((error) => {
+        console.log("--- Error line 35");
+    });
+}
+
+async function toggleSheetProtection(
+    sheetName,
+    request,
+    password) {
+    console.log("---parent: toggleSheetProtection")
+    await Excel.run(async (context) => {
+      //console.log("toggleSheetProtection called: ", context);
+      const requiredSheet = context.workbook.worksheets.getItem(sheetName);
+      requiredSheet.load('protection');
+      await context.sync().catch((error) => {
+        console.log("--- Error line 47");
+      });
+      if (request === 'protect' && !requiredSheet.protection.protected) {
+        requiredSheet.protection.protect(
+          {
+            allowEditObjects: true,
+            allowAutoFilter: true,
+            allowFormatRows: true,
+            allowFormatColumns: true,
+          },
+          password
+        );
+      } else if (
+        request === 'unprotect' &&
+        requiredSheet.protection.protected
+      ) {
+        requiredSheet.protection.unprotect(password)
+      }
+  
+      await context.sync().catch((error) => {
+        console.log("--- Error line 67");
+      });
+    })
+    .catch((error) => {
+        console.log("--- Error line 71");
+    });
+}
+
 function getSettings() {
     var settings = Office.context.document.settings;
     console.log("settings: ", settings);
@@ -45,6 +112,8 @@ function launchDialogCallback(arg) {
 }
 
 function addMessageStatus(arg) {
+    console.log("addMessageStatus called with value: ", arg);
+    writeValues(arg);
     if (arg.message === "ping!") {
         messageChild("pong!");
     } else if (arg.message === "closeme") {
