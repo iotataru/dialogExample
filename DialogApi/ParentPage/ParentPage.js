@@ -56,8 +56,7 @@ async function toggleSheetProtection(
           password
         );
       } else if (
-        request === 'unprotect' &&
-        requiredSheet.protection.protected
+        request === 'unprotect'
       ) {
         requiredSheet.protection.unprotect(password)
       }
