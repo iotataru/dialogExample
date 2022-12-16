@@ -46,7 +46,7 @@ async function toggleSheetProtection(
         console.log("--- Error line 47");
       });
       if (request === 'protect' && !requiredSheet.protection.protected) {
-        requiredSheet.protection.protect(
+        /*requiredSheet.protection.protect(
           {
             allowEditObjects: true,
             allowAutoFilter: true,
@@ -54,7 +54,7 @@ async function toggleSheetProtection(
             allowFormatColumns: true,
           },
           password
-        );
+        );*/
       } else if (
         request === 'unprotect' &&
         requiredSheet.protection.protected
