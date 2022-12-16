@@ -60,7 +60,8 @@ async function toggleSheetProtection(
       } else if (
         request === 'unprotect'
       ) {
-        requiredSheet.protection.unprotect(password)
+        console.log("Skipping unprotecting. Do it manually before.");
+        //requiredSheet.protection.unprotect(password)
       }
   
       await context.sync().catch((error) => {
