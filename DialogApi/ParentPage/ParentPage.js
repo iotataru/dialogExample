@@ -2,10 +2,16 @@
 // The initialize function must be run each time a new page is loaded
 var _dialog;
 var _childPageUrl = "https://iotataru.github.io/dialogExample/DialogApi/ChildPage/";
+var counter = 0;
 
 async function writeValues(arg)
 {
   console.log('--- Write value called with arg: ', arg);
+  if (!arg) {
+    arg = {message: counter};
+    counter++;
+  }
+  
   //let day = JSON.parse(arg.message);
   let day = arg.message;
   await Excel.run(async (context) => {
